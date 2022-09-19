@@ -1,0 +1,161 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage[margin=2cm]{geometry}
+\usepackage{hyperref}
+
+%--------------------------------------------------------------------------------
+% TikZ settings and colors
+%--------------------------------------------------------------------------------
+\input{tikz_preamble.tex}
+
+\usepackage{FiraMono}
+\usepackage[T1]{fontenc}
+
+%--------------------------------------------------------------------------------
+% Listings
+%--------------------------------------------------------------------------------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    % numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle, language=[LaTeX]TeX}
+
+%--------------------------------------------------------------------------------
+% Custom macros for math
+%--------------------------------------------------------------------------------
+\newcommand{\onehalf}{$\frac{1}{2}$}
+\renewcommand{\L}{\mathbb{L}} % lattice
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\link}{\ell}
+\newcommand{\Hlink}{\mathcal{H}_{\ell}}
+\newcommand{\groupalgebra}{\mathbb{C}[G]}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\hc}{\text{h.c.}} % hermitian conjugate text
+\newcommand{\One}{\mathbbm{1}} % identity operator
+\newcommand{\Hphys}{\mathcal{H}_{\text{phys}}} % physical Hilbert space
+\newcommand{\HIsing}{H_{\text{Ising}}} % Ising Hamiltonian
+\newcommand{\Hclock}{H_{\text{clock}}} % Ising Hamiltonian
+\newcommand{\gi}{\text{gi}} % gauge-invariant label
+% shorthand for links on the ladder
+\newcommand{\toplink}{\ell^\uparrow}
+\newcommand{\botlink}{\ell^\downarrow}
+\newcommand{\runglink}{\ell^0}
+% shorthand for electric operators on the ladder
+\newcommand{\Vup}{V^{\uparrow}}
+\newcommand{\Vdown}{V^{\downarrow}}
+\newcommand{\Vh}{V^0}
+% shorthand for the coefficients of the ladder duality map
+\newcommand{\coeffup}{c^{\uparrow}}
+\newcommand{\coeffdown}{c^{\downarrow}}
+
+\DeclareMathOperator{\Irrep}{\mathrm{Irrep}}
+\DeclareMathOperator{\Conj}{\mathrm{Conj}}
+
+
+%--------------------------------------------------------------------------------
+% Main macro for inserting a TikZ figure
+%--------------------------------------------------------------------------------
+\newcommand{\Figure}[2]{
+    \subsection*{#2}
+    \addcontentsline{toc}{subsection}{#2}
+    \vspace*{0.5cm}
+
+    \begin{center}
+        \fcolorbox{gray}{white}{\input{#1}}
+    \end{center}
+
+    \lstinputlisting{#1}
+
+    \newpage
+}
+
+\setlength{\fboxsep}{10pt}
+\setlength{\fboxrule}{0.5pt}
+
+
+%
+% Title and author
+%
+\title{\textbf{TikZ Figures}}
+\author{Sunny Pradhan}
+\date{}
+
+%--------------------------------------------------------------------------------
+% DOCUMENT
+%--------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+
+\begin{center}
+    This file is a collection of most of the TikZ figures I made
+\end{center}
+
+
+\tableofcontents
+
+\newpage
+\section*{TikZ preamble}
+\addcontentsline{toc}{section}{TikZ preamble}
+
+\lstinputlisting{tikz_preamble.tex}
+
+plus maybe some macros for math commands
+\newpage
+
+
+
+
+\addcontentsline{toc}{section}{Figures}
+
+\Figure{figures/charge_conj.tex}{Charge conjugation of a plaquette}
+\Figure{figures/closed_loops.tex}{Closed loops on a square lattice}
+\Figure{figures/gauge_invariant_conf.tex}{Gauge invariant configurations}
+\Figure{figures/ladder_duality.tex}{Duality map on a ladder}
+\Figure{figures/ladder_geometry.tex}{Ladder geometry}
+\Figure{figures/ladder_operators.tex}{Ladder operators}
+\Figure{figures/link_labels.tex}{Lattice links labels}
+\Figure{figures/non_contractible.tex}{Non contractible loops}
+\Figure{figures/nonlocal_operators.tex}{Non local operators}
+\Figure{figures/nonlocal_order_parameters.tex}{Order parameters on a ladder}
+\Figure{figures/orientation_lattice.tex}{Orientation of a 2d lattice}
+\Figure{figures/orientation_link_op.tex}{Orientation of link operators}
+\Figure{figures/picture_operators_A_B.tex}{Operators of a quantum double model}
+\Figure{figures/ribbon_action.tex}{Action of a ribbon operator}
+\Figure{figures/ribbon_examples.tex}{Examples of ribbons}
+\Figure{figures/stag_spinor_component.tex}{Staggered spinor components}
+\Figure{figures/star_plaq_operators_2.tex}{Toric code operators}
+\Figure{figures/star_plaq_operators.tex}{Gauss and plaquette operators}
+\Figure{figures/triangles.tex}{Triangles on a lattice}
+\Figure{figures/z2_states.tex}{\texorpdfstring{$\Z_2$}{Z2} duality map}
+\Figure{figures/z2_vacua.tex}{\texorpdfstring{$\Z_2$}{Z2} vacuum states}
+
+\end{document}

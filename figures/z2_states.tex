@@ -1,0 +1,62 @@
+\newcommand{\UpArrow}[2]{\draw[up] (#1,#2) ++(0,-0.5) -- ++(0,1);}
+\newcommand{\DownArrow}[2]{\draw[down] (#1,#2) ++(0,-0.5) -- ++(0,1);}
+\begin{tikzpicture}[
+    font=\small,
+    scale=0.6,
+    site/.style = {circle, inner sep=0 pt, minimum size=3pt, draw=black, fill=white},
+    on/.style = {ultra thick, Green},
+    flux/.style = {fill=Green, fill opacity=0.1},
+    up/.style = {-{Latex[length=5pt, width=5pt]}, very thick, Green},
+    down/.style = {{Latex[length=5pt, width=5pt]}-, very thick}
+    ]
+
+    % Clock chain
+    \begin{scope}[xshift=-1cm, yshift=4cm, local bounding box=chain]
+        \draw[Gray, thin] (-0.5, 0) -- (5.5,0) node [pos=0.5, above=10pt, inner sep=5pt, black] {dual 2--clock chain};
+        \foreach \x/\arr in {0/\UpArrow, 1/\DownArrow, 2/\DownArrow, 3/\UpArrow, 4/\UpArrow, 5/\DownArrow} {
+            \arr{\x}{0};
+            \draw (\x, 0) node [site] {};
+        }
+        \useasboundingbox (-1, 0) -- (6,0) -- +(0,-1);
+    \end{scope}
+
+    % LGT sector (0,0)
+    \begin{scope}[local bounding box=trivial]
+        \node at (3,1) [above, inner sep=5pt] {$\Z_2$ LGT, sector $n=0$};
+        \draw[Gray, thin] (-0.5,0) grid (6.5,1);
+        \draw[on, flux] (0,0) rectangle (1,1);
+        \draw[on, flux] (3,0) rectangle (5,1);
+        % sites
+        \foreach \y in {0,1} \foreach \x in {0,1,...,6} \draw (\x,\y) node [site] {};
+        \useasboundingbox (-1, 0) -- (7,0) -- +(0,-0.75);
+    \end{scope}
+
+    % LGT sector (1,0)
+    \begin{scope}[yshift=-3.2cm, local bounding box=topological]
+        \node at (3,1) [above, inner sep=5pt] {$\Z_2$ LGT, sector $n=1$};
+        \draw[Gray, thin] (-0.5,0) grid (6.5,1);
+        \draw[on] (-0.5, 0) -- (0,0) -- (0,1) -- (1,1) -- (1,0) -- (3,0) -- (3,1) -- (5,1) -- (5,0) -- (6.5,0);
+        \fill[flux] (0,0) rectangle (1,1);
+        \fill[flux] (3,0) rectangle (5,1);
+        % sites
+        \foreach \y in {0,1} \foreach \x in {0,1,...,6} \draw (\x,\y) node [site] {};
+        \useasboundingbox (-1, 0) -- (7,0) -- +(0,-0.75);
+    \end{scope}
+
+    % Bounding boxes
+    \draw [thin, Gray] (chain.north west) rectangle (chain.south east);
+    \draw [thin, Gray] (trivial.north west) rectangle (trivial.south east);
+    \draw [thin, Gray] (topological.north west) rectangle (topological.south east);
+
+    % Arrows between the bounding boxes
+    \draw [thick, Gray, shorten >= 3pt] (chain.west)
+        edge [bend right=70, -{Latex}, Gray, very thick]
+        % node [pos=0.8, below=6pt, text=black] {$\ket{\Omega_{(0,0)}}$}
+        (trivial.west);
+    \draw [thick, Gray, shorten >= 3pt] (chain.west)
+        edge [bend right=70, -{Latex}, Gray, very thick]
+        % node [pos=0.85, below=10pt, text=black] {$\ket{\Omega_{(1,0)}}$}
+        (topological.west);
+    \draw (trivial.west) node [below left] {$\ket{\Omega_{(0,0)}}$};
+    \draw (topological.west) node [below left] {$\ket{\Omega_{(1,0)}}$};
+\end{tikzpicture}

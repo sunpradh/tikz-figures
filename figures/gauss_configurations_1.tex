@@ -1,0 +1,35 @@
+\newcommand{\DrawConfiguration}[6]{
+    \begin{scope}[xshift=#1, yshift=#2]
+        \draw[step=2,black,thin] (-1,-1) grid (1,1);
+        \node[#3] at ( 0.5,  0.0) {};
+        \node[#4] at ( 0.0,  0.5) {};
+        \node[#5] at (-0.5,  0.0) {};
+        \node[#6] at ( 0.0, -0.5) {};
+    \end{scope}
+}
+\begin{tikzpicture}[
+  ball/.style={shade, shading=ball, circle, minimum size=8pt, inner sep=0pt},
+  zero/.style={ball, ball color=red},
+  one/.style={ball, ball color=blue}
+  ]
+  \DrawConfiguration{0cm}{3cm}{zero}{one}{zero}{one}
+  \DrawConfiguration{3cm}{3cm}{zero}{zero}{zero}{zero}
+  \DrawConfiguration{6cm}{3cm}{zero}{one}{one}{zero}
+  \DrawConfiguration{9cm}{3cm}{one}{one}{zero}{zero}
+  \DrawConfiguration{0cm}{0cm}{one}{zero}{one}{zero}
+  \DrawConfiguration{3cm}{0cm}{one}{zero}{zero}{one}
+  \DrawConfiguration{6cm}{0cm}{zero}{one}{zero}{one}
+  \DrawConfiguration{9cm}{0cm}{zero}{zero}{one}{one}
+  \begin{customlegend}[
+    legend columns=2,
+    legend cell align={left},
+    legend entries={ % <= in the following there are the entries
+      {$\ket{0}=\ket{v_{0}}$},{$\ket{-}=\ket{v_{-1}}$},
+    },
+    % <= to define position and font legend
+    legend style={at={(4.5,5)},anchor=south,font=\footnotesize, column sep=2pt}]
+    % the following are the "images" and numbers in the legend
+    \addlegendimage{mark=ball, ball color=red, draw=white}
+    \addlegendimage{mark=ball, ball color=blue, draw=white}
+  \end{customlegend}
+\end{tikzpicture}

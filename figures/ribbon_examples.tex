@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+    % first ribbon fill
+    \fill[ribbon]
+    (1,0) -- ++(2, 0)  -- ++(0, 2)  -- ++(1, 0)  -- ++(-0.5, 0.5)
+    -- ++(-1, 0) -- ++(0, -2) -- ++(-1, 0) -- cycle;
+
+    % second ribbon fill
+    \fill[ribbon] (0,2) rectangle ++(2, 2);
+    \fill[white] (0.5, 2.5) rectangle ++(1, 1);
+
+    % lattice grid
+    \draw[gray, thin] (-0.75, -0.75) grid (4.75, 4.75);
+
+    % dual lattice grid
+    \draw[gray, dotted, xshift=-0.5cm, yshift=-0.5cm] (-0.25, -0.25) grid (5.25, 5.25);
+
+    % first ribbon draw
+    \draw[ribbon site] (1, 0) -- ++(0.5, 0.5); % starting ribbon site
+    \draw[direct edge] (1,0) -- ++(2, 0) -- ++(0, 2) -- ++(1,0);
+    \draw[ribbon site] (4, 2) -- ++(-0.5, 0.5); % ending ribbon site
+    \draw[dual edge] (3.5, 2.5) -- ++(-1, 0) -- ++(0, -2) -- ++(-1, 0);
+
+    % second ribbon draw
+    \draw[ribbon site] (0, 2) -- ++(0.5, 0.5);
+    \draw[direct edge] (0, 2) rectangle ++(2, 2);
+    \draw[dual edge] (0.5, 2.5) rectangle ++(1, 1);
+
+    % lattice sites
+    \foreach \x in {0,...,4} \foreach \y in {0,...,4} \node at (\x, \y) [direct vertex] {};
+
+    % dual lattice sites
+    \begin{scope}[xshift=-0.5cm, yshift=-0.5cm]
+        \foreach \x in {0,...,5} \foreach \y in {0,...,5} \node at (\x, \y) [dual vertex] {};
+    \end{scope}
+
+\end{tikzpicture}

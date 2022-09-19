@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=0.6]
+  \draw[step=4, black] (0,0) grid (4,4);
+  \node[below left]  at (0,0) {$\chi_1$};
+  \node[below right] at (4,0) {$\chi_2$};
+  \node[above right] at (4,4) {$\chi_3$};
+  \node[above left]  at (0,4) {$\chi_4$};
+
+  \begin{scope}[xshift=8cm, inner sep=1pt]
+    \draw[step=4, black] (0,0) grid (4,4);
+    \node[below left]  at (0,0) {$-\chi_1^{\dagger}$};
+    \node[below right] at (4,0) {$-\chi_2^{\dagger}$};
+    \node[above right] at (4,4) {$-\chi_3^{\dagger}$};
+    \node[above left]  at (0,4) {$-\chi_4^{\dagger}$};
+  \end{scope}
+
+  \draw[thick, ->] (4.5,2) -- +(3,0) node[pos=0.5, above] {$\mathcal{C}$};
+\end{tikzpicture}

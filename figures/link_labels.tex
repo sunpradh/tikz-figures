@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+        font=\small,
+        scale=1.3,
+        site/.style = {circle, inner sep=0 pt, minimum size=5pt, draw=black, fill=white},
+        decoration={
+            markings,
+            mark=at position 0.35 with {\arrow{>}},
+            mark=at position 0.85 with {\arrow{>}}
+        }
+    ]
+    % Lattice
+    \draw[Gray, thin] (-1.25, -1.25) grid (1.25, 1.25);
+    % links
+    \draw[very thick, postaction={decorate}]
+        (-1, 0) -- (1, 0)
+        node [pos=0.75, below] {$(x, \hat{1})$}
+        % node [pos=0.25, below] {$(x, -\hat{1})$}
+        ;
+    \draw[very thick, postaction={decorate}]
+        (0, -1) -- (0, 1)
+        node [pos=0.8, right] {$(x, \hat{2})$}
+        % node [pos=0.15, right] {$(x, -\hat{2})$}
+        ;
+    % sites
+    \foreach \x in {-1,...,1}
+        \foreach \y in {-1,...,1}
+            \draw (\x, \y) node [site] {};
+    \draw (0, 0) node [Gray, above right] {$x$};
+    \draw (1, 0) node [Gray, above right] {$x + \hat{1}$};
+    \draw (0, 1) node [Gray, above right] {$x + \hat{2}$};
+\end{tikzpicture}

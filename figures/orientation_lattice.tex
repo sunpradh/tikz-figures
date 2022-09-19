@@ -1,0 +1,21 @@
+%
+% Picture of the orientation of the 2d square lattice
+%
+\begin{tikzpicture}[
+    decoration={
+        markings,
+        mark=at position 0.5 with {\arrow{>}}
+    },
+    link/.style={postaction={decorate}, very thick},
+    site/.style={circle, inner sep=0pt, minimum size=5pt, draw=white, fill=black}
+    ]
+    \foreach \x in {0,...,2} \draw [link] (\x, -1) -- +(0, 1);
+    \foreach \y in {0,...,2} \draw [link] (-1, \y) -- +(1, 0);
+    \foreach \x in {0,...,2}
+    \foreach \y in {0,...,2}
+    {
+        \draw[link] (\x, \y) -- +(1, 0);
+        \draw[link] (\x, \y) -- +(0, 1);
+        \draw (\x, \y) node[site] {};
+    }
+\end{tikzpicture}

@@ -1,0 +1,33 @@
+%
+% Pictorial representations of the operators A_g and B_h
+%
+\begin{tikzpicture}[
+        decoration={
+            markings,
+            mark=at position 0.5 with {\arrow{>}}
+        },
+        link/.style={postaction={decorate}, very thick},
+        site/.style={circle, inner sep=0pt, minimum size=5pt, draw=white, fill=black},
+        font=\small
+        ]
+        \draw (-1.2, 0) node[font=\normalsize, anchor=east] {$A_g(s,p) = $};
+
+        \draw[link] (-1, 0)  -- (0, 0) node [pos=0.3, above] {$L^g_+$};
+        \draw[link] (0,  0)  -- (1, 0) node [pos=0.7, below] {$L^g_-$};
+        \draw[link] (0, -1)  -- (0, 0) node [pos=0.3, left] {$L^g_+$};
+        \draw[link] (0,  0)  -- (0, 1) node [pos=0.7, right] {$L^g_-$};
+        \draw (0, 0) node [site] {};
+        \draw (0, 0) node [above right, black!70] {$s$};
+
+        \begin{scope}[xshift=7cm]
+            \draw (-1.2, 0) node[font=\normalsize, anchor=east] {$B_h(s,p) = \displaystyle\sum_{h_1 \cdots h_4} $};
+            \draw[link] (-0.5, -0.5)  -- (+0.5, -0.5) node [pos=0.5, below] {$T^{h_1}_+$};
+            \draw[link] (+0.5, -0.5)  -- (+0.5, +0.5) node [pos=0.5, right] {$T^{h_2}_+$};
+            \draw[link] (-0.5, +0.5)  -- (+0.5, +0.5) node [pos=0.5, above] {$T^{h_3}_-$};
+            \draw[link] (-0.5, -0.5)  -- (-0.5, +0.5) node [pos=0.5, left ] {$T^{h_4}_-$};
+            \draw[->] (0, -0.25) arc (-90:180:0.25);
+            \draw[black!70] (0,0) node {$p$};
+            \draw[black!70] (-0.5, -0.5) node [below left] {$s$};
+            \foreach \x in {-0.5,0.5} \foreach \y in {-0.5,0.5} \draw (\x,\y) node [site] {};
+        \end{scope}
+\end{tikzpicture}

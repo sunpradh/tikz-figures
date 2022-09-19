@@ -1,0 +1,55 @@
+\begin{tikzpicture}[scale=1.5, font=\footnotesize]
+    % ribbon fill
+    \fill [ribbon] (0, 0) -- ++ (3.5, 0) -- ++(0, -0.5) -- ++(-3, 0) -- cycle;
+
+    % lattice grid
+    \draw[thin, gray] (0,0) grid (3.5, -0.75);
+
+    % ribbon edges
+    \draw[ribbon site] (0, 0) -- ++(0.5, -0.5);
+    \draw[direct edge] (0, 0) -- ++(3.5, 0);
+    \draw[dual edge] (0.5, -0.5) -- ++(3, 0);
+
+    % lattice vertices
+    \foreach \x in {0,...,3} \node at (\x, 0) [direct vertex] {};
+    \node at (0.5, -0.5) [dual vertex] {};
+
+    % labels
+    \node at (0.5, 0) [above] {$x_1$};
+    \node at (1.5, 0) [above] {$x_2$};
+    \node at (2.5, 0) [above] {$x_3$};
+
+    \node at (1, -0.5) [below right] {$y_1$};
+    \node at (2, -0.5) [below right] {$y_2$};
+    \node at (3, -0.5) [below right] {$y_3$};
+
+    \node at (0, -0.25) [left, font=\normalsize] {$F^{(h,g)}$};
+    \node at (3.75, -0.25) [right, font=\normalsize] {$ = $};
+
+    % transformed grid
+    \begin{scope}[yshift=-1.5cm]
+
+        % lattice grid
+        \draw[thin, gray] (0,0) grid (3.5, -0.75);
+
+        % ribbon edges
+        \draw[ribbon site] (0, 0) -- ++(0.5, -0.5);
+        \draw[direct edge] (0, 0) -- ++(3.5, 0);
+        \draw[dual edge] (0.5, -0.5) -- ++(3, 0);
+
+        % lattice vertices
+        \foreach \x in {0,...,3} \node at (\x, 0) [direct vertex] {};
+        \node at (0.5, -0.5) [dual vertex] {};
+
+        % labels
+        \node at (0.5, 0) [above] {$x_1$};
+        \node at (1.5, 0) [above] {$x_2$};
+        \node at (2.5, 0) [above] {$x_3$};
+
+        \node at (1, -0.5) [below right] {$hy_1$};
+        \node at (2, -0.5) [below right] {$x_1^{-1} h x_1 y_2$};
+        \node at (3, -0.5) [below right] {$(x_1 x_2)^{-1} h (x_1 x_2) y_3$};
+
+        \node at (0, -0.25) [left, font=\normalsize] {$\delta_{g, x_1 x_2 x_3 \cdots}$};
+    \end{scope}
+\end{tikzpicture}

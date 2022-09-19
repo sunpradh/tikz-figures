@@ -1,0 +1,22 @@
+%
+% Picture of the orientation of the link operators L^g and T^h
+%
+\begin{tikzpicture}[
+    scale=2.5,
+    decoration={
+        markings,
+        mark=at position 0.5 with {\arrow{>}}
+    },
+    link/.style={postaction={decorate}, very thick},
+    site/.style={circle, inner sep=0pt, minimum size=5pt, draw=white, fill=black}
+    ]
+    \draw[gray] (-0.5, 0) -- (1.5, 0);
+    \draw[gray] (0, -0.5) -- (0, 0.5);
+    \draw[gray] (1, -0.5) -- (1, 0.5);
+    \draw[link] (0,0) -- (1, 0)
+        node [pos=0.5, above] {$T^h_+$}
+        node [pos=0.5, below] {$T^h_-$}
+        ;
+    \draw (0,0) node [site] {} node [above] {$L^g_+$};
+    \draw (1,0) node [site] {} node [above] {$L^g_-$};
+\end{tikzpicture}

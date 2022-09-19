@@ -1,0 +1,31 @@
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% TikZ
+\usetikzlibrary{
+    arrows.meta,
+    decorations.markings,
+    patterns,
+    fit,
+    positioning
+}
+\tikzset{
+    % Main settings
+    font=\footnotesize,
+    >={Latex},
+    % Ribbons styles
+    direct vertex/.style={circle, inner sep=0pt, minimum size=3pt, draw=black, fill=black},
+    dual vertex/.style={circle, inner sep=0pt, minimum size=3pt, draw=black, fill=white},
+    ribbon site/.style={very thick, dashed, black},
+    direct edge/.style={very thick, black},
+    dual edge/.style={very thick, dotted, black},
+    ribbon/.style={green, opacity=0.3},
+    direct ribbon/.style={red, opacity=0.3},
+    dual ribbon/.style={blue, opacity=0.3}
+}
+
+% Colors
+\colorlet{Red}{red!70!black}
+\colorlet{Blue}{blue!70!black}
+\colorlet{Gray}{gray!70!black}
+\colorlet{Green}{green!70!black}

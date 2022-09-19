@@ -1,0 +1,11 @@
+\begin{tikzpicture}[scale=0.7,
+  dot/.style = {circle, minimum size=5pt, inner sep=0pt, draw=black},
+  even/.style = {dot, fill=cyan},
+  odd/.style = {dot, fill=orange}
+  ]
+  \draw[step=4.0,black,thin] (0,0) grid (4,4);
+  \draw (0,0) node [even, label=below left:{$1$}]  {} node [black, above right] {$(0,0)$};
+  \draw (4,0) node [odd,  label=below right:{$2$}] {} node [black, above left]  {$(a,0)$};
+  \draw (4,4) node [even, label=above right:{$3$}] {} node [black, below left]  {$(a,a)$};
+  \draw (0,4) node [odd,  label=above left:{$4$}]  {} node [black, below right] {$(0,a)$};
+\end{tikzpicture}

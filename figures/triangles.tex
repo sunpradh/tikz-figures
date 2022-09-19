@@ -1,0 +1,36 @@
+\begin{tikzpicture}[scale=1.5]
+    % direct ribbons fill
+    \fill [direct ribbon] (0, 2) -- ++(1, 0) -- ++(-0.5, -0.5) -- cycle;
+    \fill [direct ribbon] (2, 0) -- ++(0, 1) -- ++(-0.5, -0.5) -- cycle;
+
+    % dual ribbons fill
+    \fill [dual ribbon] (-0.5, 0.5) -- ++(1, 0) -- ++(-0.5, 0.5) -- cycle;
+    \fill [dual ribbon] (1.5,  1.5) -- ++(0, 1) -- ++(0.5, -0.5) -- cycle;
+
+    % lattice grid
+    \draw[gray, thin] (-0.75, -0.75) grid (2.75, 2.75);
+
+    % dual lattice grid
+    \draw[gray, dotted, xshift=-0.5cm, yshift=-0.5cm] (-0.25, -0.25) grid (3.25, 3.25);
+
+    % direct ribbon draw
+    \draw [direct edge] (0, 2) -- ++(1, 0);
+    \draw [direct edge] (2,0 ) -- ++(0, 1);
+    \draw [ribbon site] (0, 2) -- ++(0.5, -0.5) -- ++(0.5, 0.5);
+    \draw [ribbon site] (2, 0) -- ++(-0.5, 0.5) -- ++(0.5, 0.5);
+
+    % dual ribbon draw
+    \draw [dual edge] (-0.5, 0.5) -- ++(1, 0);
+    \draw [dual edge] (1.5,  1.5) -- ++(0, 1);
+    \draw [ribbon site] (-0.5, 0.5) -- ++(0.5, 0.5) -- ++(0.5, -0.5);
+    \draw [ribbon site] (1.5,  1.5) -- ++(0.5, 0.5) -- ++(-0.5, 0.5);
+
+    % lattice sites
+    \foreach \x in {0,...,2} \foreach \y in {0,...,2} \node at (\x, \y) [direct vertex] {};
+
+    % dual lattice sites
+    \begin{scope}[xshift=-0.5cm, yshift=-0.5cm]
+        \foreach \x in {0,...,3} \foreach \y in {0,...,3} \node at (\x, \y) [dual vertex] {};
+    \end{scope}
+
+\end{tikzpicture}

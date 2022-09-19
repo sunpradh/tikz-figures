@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+        scale=1.2,
+        site/.style = {circle, inner sep=0 pt, minimum size=3pt, draw=black, fill=white},
+        decoration={
+            markings,
+            mark=at position 0.65 with {\arrow{>}}
+        },
+        plaq/.style={Blue, very thick, postaction={decorate}},
+        gauss/.style={Red, very thick, postaction={decorate}}
+        ]
+    % Lattice
+    \draw[Gray,thin] (-0.5,-0.5) grid (4.5,2.5);
+
+    % Plaquette operator
+    \draw[plaq] (3,1) -- (4,1) node [pos=0.5, below] {$U$};
+    \draw[plaq] (4,1) -- (4,2) node [pos=0.5, right] {$U$};
+    \draw[plaq] (4,2) -- (3,2) node [pos=0.5, above] {$U^\dagger$};
+    \draw[plaq] (3,2) -- (3,1) node [pos=0.5, left]  {$U^\dagger$};
+    \draw[Blue, ultra thick, pattern=north east lines, pattern color=Blue] (3,1) rectangle (4,2);
+    \draw (3.5,1.5) node [fill=white, rounded corners] {$U_{\square}$};
+
+    % Gauss operator
+    \draw[gauss] (1, 1) -- (2, 1) node [pos=0.5, below right] {$V$};
+    \draw[gauss] (1, 1) -- (1, 2) node [pos=0.5, above left] {$V$};
+    \draw[gauss] (1, 1) -- (0, 1) node [pos=0.5, below left] {$V^\dagger$};
+    \draw[gauss] (1, 1) -- (1, 0) node [pos=0.5, below right] {$V^\dagger$};
+
+    \foreach \y in {0,1,2} \foreach \x in {0,1,...,4} \draw (\x,\y) node [site] {};
+
+    \draw (1,1) node [above right, outer sep=5pt, inner sep=3pt, draw=Red, rounded corners=3pt] {$G_x$};
+\end{tikzpicture}
