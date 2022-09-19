@@ -1,0 +1,52 @@
+\begin{tikzpicture}[
+        scale=1.75,
+        font=\footnotesize,
+        dot/.style = {circle, inner sep=0pt, minimum size=4pt, fill=black},
+        thick,
+        etichetta grafico/.style = {above=0.1cm, font=\normalsize, fill=Grey10, fill opacity=0.9, text opacity=1, rounded corners, inner sep=2pt},
+        nota grafico/.style = {below=0.2cm, font=\small, fill=Grey10, fill opacity=0.9, text opacity=1, rounded corners, inner sep=2pt, align=center},
+        sfondo grafico/.style = {fill=white, draw=black, thin, inner sep=2pt}
+    ]
+    \node (A) at (45:1)  [dot] {};
+    \node (C) at (-45:1) [dot] {};
+    \node (D) at (-90:1) [dot] {};
+    \node (E) at (135:1) [dot] {};
+    \node (H) at (0:1)   [dot] {};
+    \node (K) at (-18.44:1) [dot] {};
+    \node[above right] (critical) at (A) {$\pi/4$};
+    \node[below right] at (C) {$-\pi/4$};
+    \node[below]       at (D) {$-\pi/2$};
+    \node[above left]  at (E) {$3 \pi / 4$};
+    \node[right]       at (H) {Heisenberg};
+    \node[right]       at (K) {\textbf{AKLT}};
+
+    \draw (0,0) circle [radius=1];
+
+    \draw[fill=Blue40, fill opacity=0.7] (0,0) -- (C) arc (-45:45:1) -- (0,0);
+    \draw[fill=Green, fill opacity=0.5] (0,0) -- (D) arc (-90:-45:1) -- (0,0);
+    \draw[fill=Red, fill opacity=0.5] (0,0) -- (A) arc (45:135:1) -- (0,0);
+
+    \node at (45:1)  [dot] {};
+    \node at (-45:1) [dot] {};
+    \node at (-90:1) [dot] {};
+    \node at (135:1) [dot] {};
+    \node at (0:1)   [dot] {};
+    \node at (-18.44:1) [dot] {};
+
+    \path (A) arc (45:135:1) node (dimer) [below=10pt, midway] {Dimer};
+    \path (C) arc (-45:45:1) node (Haldane) [left=6pt, midway] {Haldane};
+    \path (D) arc (-90:-225:1) node [above right=10pt, midway] {Ferro};
+    \path (C) arc (-45:-90:1) node [above=8pt, pos=0.6] {Trimer};
+
+    \draw[freccia] (10:1.1) arc (10:35:1.1) node [midway, right] {$\theta = \tan^{-1} \beta$};
+
+    \node[align=center, draw=black, thin] (const) at (2.5, 1.5) {$f_Q \sim const$ \\ constant};
+    \node[align=center, draw=black, thin] (subext) at (3, 0.5) {$f_Q \sim L^{0.44}$ \\ subextensive};
+    \node[align=center, draw=black, thin] (ext) at (2.5, -0.75) {$f_Q \sim L$ \\ extensive};
+
+    \draw[very thick] (Haldane.south) edge[Grey60, freccia, bend right] (ext.west);
+    \draw[very thick] (critical.east) edge[Grey60, freccia, bend left] (subext.north west);
+    \draw[very thick] (dimer.north) edge[Grey60, freccia, bend left] (const.west);
+
+\end{tikzpicture}
+

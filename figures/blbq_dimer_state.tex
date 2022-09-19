@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+        scale=0.75,
+        spin one/.style={fill=Blue20, fill opacity=1, draw=black, thin, inner sep=0cm, minimum size=0.5cm, thick},
+        spin half/.style={circle, fill=Orange, draw=black, inner sep=0cm, minimum size=0.35cm},
+        entangled/.style={line width=2pt},
+        nonentangled/.style={dotted, thick},
+        font=\footnotesize
+    ]
+    % spin 1 sites
+    \foreach \x in {0, 3, ..., 15}
+    \draw [spin one] (\x, 0) ellipse [ x radius=1cm, y radius=0.5cm ];
+
+    % entanglement lines
+    \foreach \x/\y in {0/3, 6/9, 12/15} {
+        \draw[entangled] (\x+0.4, 0 ) -- (\y-0.4,0);
+        \draw[entangled] (\x-0.4, 0 ) -- ++(0, 1) -- ++(3.8, 0) -- ++(0, -1);
+    }
+    \draw[nonentangled] (3.4, 0) -- (5.6,0);
+    \draw[nonentangled] (9.4, 0) -- (11.6,0);
+
+    % spin one half
+    \foreach \x in {0, 3, ..., 15} {
+        \draw (\x+0.35, 0) node [anchor=center, spin half] {};
+        \draw (\x-0.35, 0) node [anchor=center, spin half] {};
+    }
+\end{tikzpicture}

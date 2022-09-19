@@ -13,6 +13,11 @@
     % Main settings
     font=\footnotesize,
     >={Latex},
+    % Phase diagrams
+    nota/.style={align=center, fill=Grey10, inner sep=0.5cm, font=\normalsize},
+    titolo nota/.style={align=center, color=Blue50, font=\normalsize},
+    etichetta/.style = {fill=white, fill opacity=0.9, text opacity=1, text=black, rounded corners, inner sep=2pt},
+    freccia/.style = {arrows = {-Stealth}},
     % Ribbons styles
     direct vertex/.style={circle, inner sep=0pt, minimum size=3pt, draw=black, fill=black},
     dual vertex/.style={circle, inner sep=0pt, minimum size=3pt, draw=black, fill=white},
@@ -24,8 +29,36 @@
     dual ribbon/.style={blue, opacity=0.3}
 }
 
-% Colors
-\colorlet{Red}{red!70!black}
-\colorlet{Blue}{blue!70!black}
-\colorlet{Gray}{gray!70!black}
-\colorlet{Green}{green!70!black}
+% IBM Carbon Colors
+\definecolor{Foreground}{RGB}{22, 22, 22}
+\definecolor{Background}{RGB}{244, 244, 244}
+\definecolor{Blue100}{RGB}{0, 17, 65}
+\definecolor{Blue90}{RGB}{0, 29, 108}
+\definecolor{Blue80}{RGB}{0, 45, 156}
+\definecolor{Blue70}{RGB}{0, 67, 206}
+\definecolor{Blue60}{RGB}{15, 95, 254}
+\definecolor{Blue50}{RGB}{69, 137, 255}
+\definecolor{Blue40}{RGB}{120, 169, 255}
+\definecolor{Blue30}{RGB}{166, 200, 255}
+\definecolor{Blue20}{RGB}{208, 226, 255}
+\definecolor{Blue10}{RGB}{237, 245, 255}
+\definecolor{Red}{RGB}{218, 30, 40}
+\definecolor{Orange}{RGB}{255, 131, 43}
+\definecolor{Yellow}{RGB}{253, 220, 105}
+\definecolor{Green}{RGB}{25, 128, 56}
+\definecolor{Grey05}{RGB}{240, 240, 240}
+\definecolor{Grey10}{RGB}{224, 224, 224}
+\definecolor{Grey15}{RGB}{211, 211, 211}
+\definecolor{Grey20}{RGB}{198, 198, 198}
+\definecolor{Grey30}{RGB}{168, 168, 168}
+\definecolor{Grey40}{RGB}{141, 141, 141}
+\definecolor{Grey50}{RGB}{111, 111, 111}
+\definecolor{Grey60}{RGB}{82, 82, 82}
+\definecolor{Grey70}{RGB}{57, 57, 57}
+\definecolor{Grey80}{RGB}{38, 38, 38}
+\definecolor{Grey90}{RGB}{22, 22, 22}
+\definecolor{White}{RGB}{255, 255, 255}
+\definecolor{Black}{RGB}{0, 0, 0}
+\colorlet{Blue}{Blue60}
+\colorlet{Gray}{Grey40}
+

@@ -1,0 +1,55 @@
+\begin{tikzpicture}[
+    scale=1.,
+    font=\footnotesize,
+    punto/.style = {circle, inner sep=0pt, minimum size=2pt, fill=black},
+    massless/.style = {fill=Blue40, fill opacity=0.7},
+    trivial/.style = {fill=Grey10,  fill opacity=0.5},
+    massive/.style = {fill=Red,   fill opacity=0.5},
+    etichetta spettro/.style = {above=-0.25cm, font=\normalsize, fill=Grey10, fill opacity=0.9, text opacity=1, rounded corners, inner sep=2pt}
+    ]
+
+    %%% Phases
+    % massless
+    \path[massless] (-2,1) rectangle (2,3);
+    % massive
+    \path[massive]  (-4,1) rectangle (2,0);
+    % trivial
+    \path[trivial] (-4,1) rectangle (-2,3);
+    \path[trivial] (2,0) rectangle (4,3);
+
+    % sector separator
+    \draw[dashed, ultra thick] (-4.2,1) -- (4.4,1) node [below, etichetta] {$\alpha = 1$};
+
+    % critical line
+    \draw[ultra thick] (2,0) -- (2,3);
+    \draw[dotted]     (-2,0) -- (-2,1);
+    \draw[ultra thick] (-2,1) -- (-2,3);
+
+    %%% Axis
+    \draw[ultra thick, freccia] (0,0) -- (0,3.3) node [above] {$\alpha$};
+    \draw[ultra thick, freccia] (-4.2,0) -- (4.2,0) node [right] {$\mu$};
+    \draw (2,0) node [below] {$2$};
+    \draw (-2,0) node [below] {$-2$};
+    \draw (0,0) node [below] {$0$};
+
+
+    % labels
+    \node [etichetta] (massless) at (0,2)  {topol.~massless};
+    \node [etichetta] (trivial1) at (-3,2.25) {trivial};
+    \node [etichetta] (trivial2) at (3,2.25)  {trivial};
+    \node [etichetta] (massive)  at (-1,0.5)  {topol.~massive};
+
+    \draw[Stealth-, thick] (2,3.1) -- (2,3.3) node [above] {critical};
+    \draw[Stealth-, thick] (-2,3.1) -- (-2,3.3) node [above] {critical};
+
+    \draw (-4, 2)    node [anchor=south, etichetta, rotate=90] {\textbf{Majorana}};
+    \draw (-4, 0.5)  node [anchor=south, etichetta, rotate=90] {\textbf{Dirac}};
+
+    \node[align=center, draw=black] (subext) at (-1.5, -1.5) {$f_Q \sim L^{3/4}$\\ subextensive};
+    \node[align=center, draw=black] (ext)    at ( 1.0, -1.5) {$f_Q \sim L$\\ extensive};
+    \node[align=center, draw=black] (const)  at ( 3.25, -1.5) {$f_Q \sim \text{const}$\\ constant};
+
+    \draw[very thick] (massive.south)  edge[Grey60, freccia] (subext.north);
+    \draw[very thick] (massless.east)  edge[Grey60, freccia, bend left=20] (ext.north);
+    \draw[very thick] (trivial2.south) edge[Grey60, freccia] (const.north);
+\end{tikzpicture}
