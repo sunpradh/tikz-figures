@@ -1,0 +1,61 @@
+\begin{tikzpicture}[scale=2]
+    % Sphere
+    \draw (1,0) arc (0:360:1);
+    \draw (1,0) arc [x radius=1, y radius=0.3, start angle=0, end angle=-180] {};
+    \draw[dashed] (1,0) arc [x radius=1, y radius=0.3, start angle=0, end angle=180] {};
+
+    \draw (0.7, 0) node {$S^2$};
+
+    \draw[fill] (0,0) circle [radius=0.5pt] ;
+
+    \begin{scope}[thick,decoration={
+            markings,
+            mark=at position 0.3 with {\arrow{>}},
+            mark=at position 0.8 with {\arrow{>}}}
+        ]
+        \draw[postaction={decorate}] (0.5,0.5)
+            to [out=150, in=140] (-0.5,0.5)
+            to [out=-40, in=190] (0.5, 0.5)
+            ;
+    \end{scope}
+    \draw (0.5,0.5) node [label=right:{ $ \mathbf{R}(0) $ }] {};
+    \draw (-0.5,0.5) node [label=left:{ $ \mathbf{R}(t) $ }] {};
+
+    % Arrows from the origin
+    \draw[thick, ->] (0,0) -- (0.5, 0.5 );
+    \draw[thick, ->] (0,0) -- (-0.5, 0.5);
+
+    % Fibers
+    \draw (1,1) -- (2,2);
+    \draw (-1,1) -- (-2,2);
+    \draw (75:1.2) -- (75:2.5);
+    \draw (105:1.2) -- (105:2.5);
+
+    \coordinate (R0) at (45:1.6);
+    \coordinate (R1) at (45:2.4);
+    \coordinate (R2) at (75:1.5);
+    \coordinate (R3) at (105:1.65);
+    \coordinate (Rt) at (135:1.7);
+
+    \draw[fill] (R0) circle [radius=0.5pt] node[label=right:{$\ket{\mathbf{R}(0)}$}] {};
+    \draw[fill] (R1) circle [radius=0.5pt] node[label=right:{$\tilde{\mathbf{R}}(1) = e^{i \eta(1)} \ket{\mathbf{R}(0)}$}] {};
+    \draw[fill] (R2) circle [radius=0.5pt] ;
+    \draw[fill] (R3) circle [radius=0.5pt] ;
+    \draw[fill] (Rt) circle [radius=0.5pt] node[label=left:{$\tilde{\mathbf{R}}(t)$}] {};
+
+    \begin{scope}[thick,decoration={
+            markings,
+            mark=at position 0.25 with {\arrow{>}},
+            mark=at position 0.6 with {\arrow{>}}}
+        ]
+        \draw[postaction={decorate}]
+        (R0) to [out=190, in=-20] (R3)
+        to [out=160, in=135] (Rt)
+        to [out=-45, in=190] (R2)
+        to [out=10, in=195] (R1)
+        ;
+    \end{scope}
+\end{tikzpicture}
+
+
+
